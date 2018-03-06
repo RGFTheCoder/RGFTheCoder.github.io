@@ -5,7 +5,7 @@ var page = searchParams.get('p');
 var dir = document.location.protocol + "/" + document.location.pathname.split("/").slice(0, -1).join("/") + "/pages/" + page + ".html"
 
 
-console.log(dir);
+//console.log(dir);
 
 
 $.get("./pages/" + page + ".html", function(data) {
