@@ -10,5 +10,4 @@ console.log(dir);
 
 $.get("./pages/" + page + ".html", function(data) {
     $("div#content").html(data);
-    alert("Load was performed.");
 });
