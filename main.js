@@ -17,18 +17,21 @@ $.get("./conf/pages.json", function(data) {
     conf = data;
 });
 
-var $list = $("ul#nav")
+window.onload = function() {
+    var $list = $("ul#nav")
 
-var html = "";
+    var html = "";
 
-for (const i in conf) {
-    if (conf.hasOwnProperty(i)) {
-        const element = conf[i];
-        html += "<li><a class=\"\" href=\"?p=" + element + "\">" + capitalizeFirstLetter(element) + "</a></li>";
+    for (const i in conf) {
+        if (conf.hasOwnProperty(i)) {
+            const element = conf[i];
+            html += "<li><a class=\"\" href=\"?p=" + element + "\">" + capitalizeFirstLetter(element) + "</a></li>";
+        }
     }
+
+    $list.html(html);
 }
 
-$list.html(html);
 //console.log(conf);
 
 function capitalizeFirstLetter(string) {
