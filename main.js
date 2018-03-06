@@ -18,6 +18,7 @@ $.get("./conf/pages.json", function(data) {
 });
 
 window.onload = function() {
+
     var $list = $("ul#nav")
 
     var html = "";
