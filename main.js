@@ -14,6 +14,23 @@ $.get("./pages/" + page + ".html", function(data) {
 
 var conf = {};
 $.get("./conf/pages.json", function(data) {
-    console.log(data);
+    conf = data;
 });
+
+var $list = $("ul#nav")
+
+var html = "";
+
+for (const i in conf) {
+    if (conf.hasOwnProperty(i)) {
+        const element = conf[i];
+        html += "<li><a class=\"\" href=\"?p=" + element + "\">" + capitalizeFirstLetter(element) + "</a></li>";
+    }
+}
+
+$list.html(html);
 //console.log(conf);
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
