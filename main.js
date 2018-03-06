@@ -14,6 +14,6 @@ $.get("./pages/" + page + ".html", function(data) {
 
 var conf = {};
 $.get("./conf/pages.json", function(data) {
-    conf = JSON.parse(data);
+    console.log(data);
 });
-console.log(conf);
+//console.log(conf);
