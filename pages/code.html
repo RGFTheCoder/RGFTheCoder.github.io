@@ -63,6 +63,7 @@ localStorage.code = editor.getSession().getValue();
 var jji = document.getElementById("out");
 
 jji.onclick = run;
+jji.onmousemove = run;
 function print(str) {
   jji.innerHTML = str;
 }
