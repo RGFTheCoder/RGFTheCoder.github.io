@@ -43,7 +43,14 @@ button {
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.3/ace.js"></script>
 <script>
 var d = console.log;
-document.getElementById("editor").innerHTML = localStorage.code;
+var searchParams = new URLSearchParams(window.location.search);
+    
+if(typeof localStorage.code == "undefined") {
+    localStorage.code = {};
+}
+
+var prog = searchParams.get('p');
+document.getElementById("editor").innerHTML = localStorage.code[prog];
 var editor = ace.edit("editor");
 editor.setTheme("ace/theme/monokai");
 editor.session.setMode("ace/mode/javascript");
@@ -54,7 +61,7 @@ function run() {
   //console.log = print;
     eval(editor.getSession().getValue());
     print(test());
-localStorage.code = editor.getSession().getValue();
+localStorage.code[prog] = editor.getSession().getValue();
   return;
 }
 
