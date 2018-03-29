@@ -1,7 +1,4 @@
-<div id="editor">function test(items) {
-    var x = "All this is syntax highlighted";
-    return x;
-}</div>
+<div id="editor">function test() {}</div>
 <div onclick="run()" id="out">ff</div>
 
 <style>
@@ -46,6 +43,9 @@ var d = console.log;
 var searchParams = new URLSearchParams(window.location.search);
 
 var prog = searchParams.get('p');
+if(typeof localStorage[prog] == "undefined") {
+       localStorage[prog] = "function test() {}"
+}
 document.getElementById("editor").innerHTML = localStorage[prog];
 var editor = ace.edit("editor");
 editor.setTheme("ace/theme/monokai");
@@ -54,7 +54,7 @@ var out = "";
 
 
 function run() {
-  //console.log = print;
+    console.log = print;
     eval(editor.getSession().getValue());
     print(test());
 localStorage[prog] = editor.getSession().getValue();
