@@ -44,13 +44,9 @@ button {
 <script>
 var d = console.log;
 var searchParams = new URLSearchParams(window.location.search);
-    
-if(typeof localStorage.code == "undefined") {
-    localStorage.code = {};
-}
 
 var prog = searchParams.get('p');
-document.getElementById("editor").innerHTML = localStorage.code[prog];
+document.getElementById("editor").innerHTML = localStorage[prog];
 var editor = ace.edit("editor");
 editor.setTheme("ace/theme/monokai");
 editor.session.setMode("ace/mode/javascript");
@@ -61,7 +57,7 @@ function run() {
   //console.log = print;
     eval(editor.getSession().getValue());
     print(test());
-localStorage.code[prog] = editor.getSession().getValue();
+localStorage[prog] = editor.getSession().getValue();
   return;
 }
 
